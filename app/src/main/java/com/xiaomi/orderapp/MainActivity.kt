@@ -18,5 +18,11 @@ class MainActivity : AppCompatActivity() {
         findViewById<android.widget.Button>(R.id.btnNewOrder).setOnClickListener {
             startActivity(Intent(this, OrderActivity::class.java))
         }
+        findViewById<android.widget.Button>(R.id.btnOrderHistory).setOnClickListener {
+            startActivity(Intent(this, OrderHistoryActivity::class.java))
+        }
+        findViewById<android.widget.Button>(R.id.btnBackup).setOnClickListener {
+            startActivity(Intent(this, BackupActivity::class.java))
+        }
     }
 }
