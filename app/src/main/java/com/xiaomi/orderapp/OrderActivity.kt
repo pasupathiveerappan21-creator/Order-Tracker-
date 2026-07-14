@@ -9,6 +9,9 @@ import android.widget.EditText
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 data class OrderItem(
     val dealer: String,
@@ -83,6 +86,14 @@ class OrderActivity : AppCompatActivity() {
                 Toast.makeText(this, "Order is empty", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
+            // Save this order to history with the current date/time
+            val timestamp = SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.getDefault()).format(Date())
+            val orderId = db.createOrder(timestamp)
+            orderItems.forEach { item ->
+                db.addOrderLine(orderId, item.dealer, item.product, item.variant, item.color, item.qty)
+            }
+
             val message = buildString {
                 append("Order:\n\n")
                 orderItems.forEach { append("- $it\n") }
@@ -94,10 +105,13 @@ class OrderActivity : AppCompatActivity() {
             try {
                 startActivity(sendIntent)
             } catch (e: Exception) {
-                // WhatsApp not found, fall back to normal share sheet
                 sendIntent.setPackage(null)
                 startActivity(Intent.createChooser(sendIntent, "Share order"))
             }
+
+            // Cleared here since it's now saved in Order History
+            orderItems.clear()
+            orderAdapter.clear()
         }
     }
 }
