@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <AutoCompleteTextView
+        android:id="@+id/acDealer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dealer / Shop"
+        android:completionThreshold="1" />
+
+    <AutoCompleteTextView
+        android:id="@+id/acProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Product name (type to search)"
+        android:completionThreshold="1"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/etVariant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Variant e.g. 8GB+128GB"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/etColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Colour"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/etQty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Quantity"
+        android:inputType="number"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to order"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current order (long-press a line to delete)"
+        android:textStyle="italic"
+        android:layout_marginTop="16dp" />
+
+    <ListView
+        android:id="@+id/lvOrderItems"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <Button
+        android:id="@+id/btnShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share order on WhatsApp"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>
+</ScrollView>
