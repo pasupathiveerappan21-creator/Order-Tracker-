@@ -15,5 +15,18 @@
         <activity android:name=".DealersActivity" android:exported="false" />
         <activity android:name=".ProductsActivity" android:exported="false" />
         <activity android:name=".OrderActivity" android:exported="false" />
+        <activity android:name=".OrderHistoryActivity" android:exported="false" />
+        <activity android:name=".OrderDetailActivity" android:exported="false" />
+        <activity android:name=".BackupActivity" android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 </manifest>
